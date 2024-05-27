@@ -5,6 +5,7 @@ import img2 from "../assets/img2.jpg";
 import img3 from "../assets/img3.jpg";
 import img4 from "../assets/img4.jpg";
 import img5 from "../assets/img5.jpg";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 // Product data array
 // Product data array
@@ -79,7 +80,7 @@ const ProductCard = ({ product, onInterestClick }) => {
   };
 
   return (
-    <div className='w-[350px] h-[400px] bg-slate-100 shadow-xl shadow-slate-700 flex flex-col items-center justify-around p-2 rounded-[15px] mt-3'>
+    <div className='w-[350px] h-[400px] bg-slate-100 shadow-xl shadow-slate-700 flex flex-col items-center justify-around p-2 rounded-[15px] mt-3 '>
       <img className='w-full h-[200px]' src={product.image} alt={product.name} />
       <span className='text-[20px] font-bold'>{product.name}</span>
       <div className="rating">
@@ -105,10 +106,15 @@ const BuyerPage = () => {
     setSelectedSeller(seller);
   };
 
+  const navigate=useNavigate()
   return (
     <>
-      <div className='w-full h-auto flex flex-col p-3'>
-        <div className='text-[20px] font-bold'>BuyerPage</div>
+      <div className='w-full h-auto flex flex-col items-center p-3'>
+      <div className='w-[450px] h-[70px] flex items-center justify-evenly'>
+            <span className='w-auto h-[40px] p-2 bg-blue-600 rounded-lg font-bold text-white cursor-pointer'>BuyerPage</span>
+            <span className='w-auto h-[40px] p-2 bg-green-600 rounded-lg font-bold text-white cursor-pointer' onClick={()=>navigate('/seller')}>SellerPage</span>
+
+        </div>
         {/* <Navbar/> */}
         <div className='w-full h-auto flex items-baseline justify-evenly flex-wrap mt-2 p-5'>
           {filteredProducts.map(product => (
@@ -116,15 +122,7 @@ const BuyerPage = () => {
           ))}
         </div>
       </div>
-      {selectedSeller && (
-        <div className="seller-details">
-          <h2>Seller Details</h2>
-          <p>Name: {selectedSeller.name}</p>
-          <p>Email: {selectedSeller.email}</p>
-          <p>Phone: {selectedSeller.phone}</p>
-          {/* Add more seller details */}
-        </div>
-      )}
+      
     </>
   );
 };

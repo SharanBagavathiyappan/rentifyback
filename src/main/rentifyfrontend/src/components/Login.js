@@ -19,6 +19,7 @@ const Login = () => {
 
   return (
     <div className="w-full h-[70vh] flex flex-col items-center justify-around">
+      <Navbar/>
       
       <div className="w-[25%] h-auto shadow-2xl shadow-gray-600 rounded-[15px] flex flex-col items-center justify-around mt-10 p-5">
         {isLoginForm ? <LoginForm /> : <SignupForm />}
@@ -90,7 +91,7 @@ const LoginForm = () => {
         </a>
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" className="login-form-button" onClick={()=>navigate("/Homepage")}>
           Log in
         </Button>
       </Form.Item>

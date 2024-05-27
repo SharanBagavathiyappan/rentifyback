@@ -7,7 +7,7 @@ import BuyerPage from './BuyerPage';
 
 const Homepage = () => {
   return (
-    <div className='w-full h-[100vh]  flex flex-col p-3 items-center bgHome'>
+    <div className='w-full h-[100vh]  flex flex-col p-3 items-center bgHome overflow-scroll'>
 
         <Navbar/>
         <BuyerPage/>
